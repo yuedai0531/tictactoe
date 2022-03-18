@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Play {
@@ -11,9 +12,11 @@ public class Play {
         String name1 = input.next();
         Player p1 = new Player(name1, board, 'X');
 
-        System.out.println("Please input player 2 name: ");
-        String name2 = input.next();
-        Player p2 = new Player(name2, board, 'O');
+//        System.out.println("Please input player 2 name: ");
+//        String name2 = input.next();
+//        Player p2 = new Player(name2, board, 'O');
+
+        Player computer = new Player("Computer", board, 'O');
 
         while (true) {
             getPlayerInput(board, input, p1);
@@ -22,13 +25,14 @@ public class Play {
                 break;
             }
 
-            getPlayerInput(board, input, p2);
-            if (board.isFinal() == p2.token) {
-                System.out.println("Winner is: " + p2.name);
+            getComputerInput(board, computer);
+            if (board.isFinal() == computer.token) {
+                System.out.println("Winner is: " + computer.name);
                 break;
             }
 
-            if(board.isFinal() == 't'){
+
+            if (board.isFinal() == 't') {
                 System.out.println("Game ended in a tie.");
                 break;
             }
@@ -44,6 +48,20 @@ public class Play {
 
             if (p1.addMove(row, col)) {
                 System.out.println(p1.name + " end turn");
+                board.show();
+                break;
+            }
+        }
+    }
+
+    private static void getComputerInput(Board board, Player computer) {
+        while (true) {
+            Random rn = new Random();
+            int row = rn.nextInt(3);
+            int col = rn.nextInt(3);
+
+            if (computer.addMove(row, col)) {
+                System.out.println(computer.name + " end turn");
                 board.show();
                 break;
             }
