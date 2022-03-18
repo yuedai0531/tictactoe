@@ -5,8 +5,8 @@ public class Board {
 
     Character[][] state = new Character[3][3];
 
-    public Board(){
-        for (Character[] row: this.state)
+    public Board() {
+        for (Character[] row : this.state)
             Arrays.fill(row, ' ');
     }
 

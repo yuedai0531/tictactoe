@@ -16,28 +16,43 @@ public class Play {
         Player p2 = new Player(name2, board, 'O');
 
 
+
         while (true) {
 
-            if(board.isFinal() != ' '){
+            while (true) {
+                System.out.println("input row: ");
+                int row = input.nextInt();
+                System.out.println("input col: ");
+                int col = input.nextInt();
+
+                if(p1.addMove(row, col)){
+                    System.out.println("p1 end turn");
+                    board.show();
+                    break;
+                }
+            }
+            if (board.isFinal() != ' ') {
                 break;
             }
-            break;
+
+            while (true) {
+                System.out.println("input row: ");
+                int row = input.nextInt();
+                System.out.println("input col: ");
+                int col = input.nextInt();
+
+                if(p2.addMove(row, col)){
+                    System.out.println("p2 end turn");
+                    board.show();
+                    break;
+                }
+            }
+            if (board.isFinal() != ' ') {
+                break;
+            }
         }
-        board.show();
-        board.state[1][1] = 'X';
-        board.state[2][2] = 'O';
-        p1.addMove(1, 2);
-        board.show();
-        board.reset();
-        p1.addMove(0, 0);
-        p1.addMove(1, 1);
-        p1.addMove(2, 2);
 
-//        p2.addMove(0,0);
-//        p2.addMove(0,1);
-//        p2.addMove(0,2);
-
-        System.out.println("winner is: " + board.isFinal());
+        System.out.println("Winner is: " + board.isFinal());
         board.show();
     }
 }
