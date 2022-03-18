@@ -42,6 +42,10 @@ public class Board {
         if (this.state[0][2] == this.state[1][1] && this.state[1][1] == this.state[2][0])
             return this.state[1][1];
 
+        if (!Arrays.stream(this.state).flatMap(Arrays::stream).anyMatch(c -> c == ' ')) {
+            System.out.println("Game is over");
+            return 'e';
+        }
         return ' ';
     }
 
@@ -65,5 +69,7 @@ public class Board {
      */
     public void reset() {
         this.state = new Character[3][3];
+        for (Character[] row : this.state)
+            Arrays.fill(row, ' ');
     }
 }

@@ -15,44 +15,32 @@ public class Play {
         String name2 = input.next();
         Player p2 = new Player(name2, board, 'O');
 
-
-
         while (true) {
-
-            while (true) {
-                System.out.println("input row: ");
-                int row = input.nextInt();
-                System.out.println("input col: ");
-                int col = input.nextInt();
-
-                if(p1.addMove(row, col)){
-                    System.out.println("p1 end turn");
-                    board.show();
-                    break;
-                }
-            }
+            getPlayerInput(board, input, p1);
             if (board.isFinal() != ' ') {
                 break;
             }
 
-            while (true) {
-                System.out.println("input row: ");
-                int row = input.nextInt();
-                System.out.println("input col: ");
-                int col = input.nextInt();
-
-                if(p2.addMove(row, col)){
-                    System.out.println("p2 end turn");
-                    board.show();
-                    break;
-                }
-            }
+            getPlayerInput(board, input, p2);
             if (board.isFinal() != ' ') {
+                System.out.println("Winner is: " + p2.name);
                 break;
             }
         }
+    }
 
-        System.out.println("Winner is: " + board.isFinal());
-        board.show();
+    private static void getPlayerInput(Board board, Scanner input, Player p1) {
+        while (true) {
+            System.out.println("row: ");
+            int row = input.nextInt();
+            System.out.println("col: ");
+            int col = input.nextInt();
+
+            if (p1.addMove(row, col)) {
+                System.out.println(p1.name + " end turn");
+                board.show();
+                break;
+            }
+        }
     }
 }
