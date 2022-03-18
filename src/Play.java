@@ -17,13 +17,19 @@ public class Play {
 
         while (true) {
             getPlayerInput(board, input, p1);
-            if (board.isFinal() != ' ') {
+            if (board.isFinal() == p1.token) {
+                System.out.println("Winner is: " + p1.name);
                 break;
             }
 
             getPlayerInput(board, input, p2);
-            if (board.isFinal() != ' ') {
+            if (board.isFinal() == p2.token) {
                 System.out.println("Winner is: " + p2.name);
+                break;
+            }
+
+            if(board.isFinal() == 't'){
+                System.out.println("Game ended in a tie.");
                 break;
             }
         }

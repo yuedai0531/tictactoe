@@ -43,8 +43,7 @@ public class Board {
             return this.state[1][1];
 
         if (!Arrays.stream(this.state).flatMap(Arrays::stream).anyMatch(c -> c == ' ')) {
-            System.out.println("Game is over");
-            return 'e';
+            return 't';
         }
         return ' ';
     }

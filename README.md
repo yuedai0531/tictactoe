@@ -1,22 +1,31 @@
-tic tac toe for RC
+# tic tac toe game for RC
 
-Wanted to work with streams again. Might be a better implementation for some things.
+### areas of interest
 
-how to play
+I have been wanting to experiment more with Java streams.
+There might be better implementations for some methods.
 
-AI?
+### how to play
 
-interfaces? maybe
+you input row first (0, 1, 2) corresponding to 
 
-want to learn tests
-stub/mock/create
+| 0 | - | - |
+|---|---|---|
+| 1 | - | - |
+| 2 | - | - |
 
-maybe try push pull?
+then you input column (0, 1, 2) corresponding to
 
+| 0 | 1 | 2 |
+|---|---|---|
+| - | - | - |
+| - | - | - |
 
+game will not let you input a token (`X` or `O`) at a place that already has a token.
 
-Tic Tac Toe game
+### improvements
 
-Before your interview, write a program that lets two humans play a game of Tic Tac Toe in a terminal. The program should let the players take turns to input their moves. The program should report the outcome of the game.
-
-During your interview, you will pair on adding support for a computer player to your game. You can start with random moves and make the AI smarter if you have time.
+- will probably write some tests, I've been wanting to learn more in depth mocks vs stubs vs create
+- maybe try push pull or event driven?
+- UX and UI could be improved HA!
+- accessibility should be worked on.
